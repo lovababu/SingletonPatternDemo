@@ -15,4 +15,4 @@ Demonstrates how to stop creating new Object for Singleton class using either Re
            return INSTANCE;  //singleton instance.  
    }  
   ```  
-   - for information ref: [Serializable](http://docs.oracle.com/javase/6/docs/api/java/io/Serializable.html)
+  for more information ref: [Serializable](http://docs.oracle.com/javase/6/docs/api/java/io/Serializable.html)
