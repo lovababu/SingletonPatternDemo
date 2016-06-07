@@ -16,10 +16,16 @@ public class MySingleTon implements Serializable{
         }
     }
 
-    public synchronized static MySingleTon getInstance() throws InterruptedException {
+    public static MySingleTon getInstance() throws InterruptedException {
         if (INSTANCE == null) {
-            Thread.sleep(2000);
-            INSTANCE = new MySingleTon();
+            synchronized (MySingleTon.class) {
+                System.out.println("Thread entered into critical section: " + Thread.currentThread().getId());
+                Thread.sleep(2000);
+                //double check.
+                if (INSTANCE == null) {
+                    INSTANCE = new MySingleTon();
+                }
+            }
         }
         return INSTANCE;
     }
